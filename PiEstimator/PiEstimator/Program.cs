@@ -7,7 +7,7 @@ namespace PiEstimator
         static void Main(string[] args)
         {
             long n;
-            
+
             Console.WriteLine("Pi Estimator");
             Console.WriteLine("================================================");
 
@@ -26,6 +26,34 @@ namespace PiEstimator
             double pi = 0.0;
 
             // TODO: Calculate Pi
+
+            double x = 0;
+            double y = 0;
+
+            int count = 0;
+
+            double pTotal = 0;
+            double pInCircle = 0;
+            while (count < n)
+            {
+                x = rand.NextDouble();
+                y = rand.NextDouble();
+
+                //find if point is in circle. if it is, add to pInCircle
+                if (Math.Sqrt(x * x + y * y) <= 1)
+                {
+                    count++;
+                    pInCircle++;
+                    pTotal++;
+                }
+                else
+                {
+                    count++;
+                    pTotal++;
+                }
+            }
+
+            pi = 4 * (pInCircle / pTotal);
 
             return pi;
         }
